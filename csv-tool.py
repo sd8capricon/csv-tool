@@ -76,6 +76,45 @@ def filter(file: io.TextIOWrapper, column: str, value: float):
     return temp
 
 
+# sort the file by a given column
+def sort(file: io.TextIOWrapper, column: str):
+    def sortByColumn(row):
+        return row[column]
+
+    reader = csv.DictReader(file)
+    temp = []
+    if (checkColumn(file, column) == False):
+        print("Column does not exist")
+        return None
+    for row in reader:
+        temp.append(row)
+    temp.sort(key=sortByColumn)
+    # alt: temp.sort(key=lambda row: row[column])
+    file.seek(0)
+    return temp
+
+# Standard Deviation of a given column
+
+
+def standardDeviation(file: io.TextIOWrapper, column: str):
+    reader = csv.DictReader(file)
+    sum = 0
+    count = 0
+    mean = mean(file, column)
+    file.seek(0)
+    reader = csv.DictReader(file)
+    for row in reader:
+        try:
+            if (row[column] == ""):
+                continue
+            sum += (float(row[column]) - mean) ** 2
+        except ValueError as e:
+            print("All values should be numeric")
+            return None
+    file.seek(0)
+    return (sum / count) ** 0.5
+
+
 if __name__ == "__main__":
     args = parser.parse_args()
     try:
@@ -88,6 +127,10 @@ if __name__ == "__main__":
                 print(mean(file, args.column))
             elif args.command == "filter":
                 print(filter(file, args.column, args.filter))
+            elif args.command == "sort":
+                print(sort(file, args.column))
+            elif args.command == "std":
+                print(standardDeviation(file, args.column))
             elif args.command == "exit":
                 print("Exiting...")
                 break
