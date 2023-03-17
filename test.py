@@ -49,7 +49,6 @@ class TestCSVTool(unittest.TestCase):
             if 'filter' in self.testCases[self.files[index]]:
                 filterTests = self.testCases[self.files[index]]['filter']
                 for case in filterTests:
-                    print(case['col'], case['filter'])
                     self.assertEqual(csvTool.filter(
                         file, case['col'], case['filter']), case['result'])
                 file.seek(0)
