@@ -14,17 +14,17 @@ A basic csv tool to parse and perform basic operations on csv data
 
 ### Use Tool Help
 `python csvTool.py -h`
-##### Supported Commands by the Tool
+#### Supported Commands by the Tool
  - count (count number of rows)
 - mean (mean of the given column)
 - filter (filters the given column w.r.t given filter)
 - std (standard deviation of the given column )
 - sort
 - exit
-##### Flags
- -c specify command to work with<br>
- -col specify column<br>
- -f specify how to filter
+#### Flags
+- -c specify command to work with<br>
+- -col specify column<br>
+- -f specify how to filter
  
 Note: 
 - after running the tool -c flag is not required to specify command
