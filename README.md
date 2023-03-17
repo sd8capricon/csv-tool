@@ -1,5 +1,5 @@
 # CSV-Tool
-
+A basic csv tool to parse and perform basic operations on csv data
 
 
 # How to run the tool
