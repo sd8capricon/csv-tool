@@ -34,13 +34,13 @@ Note:
 
 ### With Only CSV File
 Easiest way to get started is to to run the csvTool.py with your required csv file. Commands can also be provided when the tool is running
-`python csvTool.py [pathToCsvFile]`
+`python csvTool.py [pathToCsvFile]`<br>
 example
 ![eg img](imgs/without%20commands.png)
 
 ### Run With Optional Commands
 
-`python csvTool.py [pathToCSVFile ] -c [command] -col [columnName] -f[filterHere]`
+`python csvTool.py [pathToCSVFile ] -c [command] -col [columnName] -f[filterHere]`<br>
 example
 ![eg img](imgs/Inkedwith%20commands.jpg)
 
