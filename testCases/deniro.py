@@ -5,6 +5,11 @@ testCases = {
             {'col': 'Score', 'value': 58.195402298850574},
             {'col': 'Title', 'value': None},
     ],
+    'std': [
+        {'col': 'Year', 'value': 12.864436419920098},
+        {'col': 'Score', 'value': 27.90576881012477},
+        {'col': 'Title', 'value': None}
+    ],
     'filter': [
         {'col': 'Year', 'filter': '1977', 'result': [{'Year': '1977', 'Score': '47', 'Title': '1900'}, {
                 'Year': '1977', 'Score': '67', 'Title': 'New York'}]},

@@ -5,7 +5,8 @@ testCases = {
         {'col': 'Weight(Pounds)', 'value': 127.07929911279915}
     ],
     'std': [
-        {'col': 'Weight(Pounds)', 'value': 11.661111842424004},
+        {'col': 'Height(Inches)', 'value': 1.9016317307941983},
+        {'col': 'Weight(Pounds)', 'value': 11.661111842424006},
     ],
     'filter': [
         {'col': 'Height(Inches)', 'filter': '70',

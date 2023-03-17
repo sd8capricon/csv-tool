@@ -57,6 +57,18 @@ class TestCSVTool(unittest.TestCase):
             print("Filter tests passed for file {}".format(self.files[index]))
         print('\n')
 
+    def test_std(self):
+        for index, file in enumerate(self.fileList):
+            if 'std' in self.testCases[self.files[index]]:
+                stdTests = self.testCases[self.files[index]]['std']
+                for case in stdTests:
+                    self.assertEqual(csvTool.standardDeviation(
+                        file, case['col']), case['value'])
+                file.seek(0)
+            else:
+                print("No std tests for file {}".format(self.files[index]))
+            print("Std tests passed for file {}".format(self.files[index]))
+
 
 if __name__ == "__main__":
     unittest.main()
