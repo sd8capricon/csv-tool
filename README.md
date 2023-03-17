@@ -6,8 +6,8 @@ Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about St
 # How to run the tool
 
 ## Setup
-`git clone https://github.com/sd8capricon/csv-tool.git`
-`cd csv-tool`
+`git clone https://github.com/sd8capricon/csv-tool.git`<br>
+`cd csv-tool`<br>
 `pip install -r requirements.txt`
 
 ## Run
@@ -25,7 +25,7 @@ Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about St
 ##### Flags
  -c specify command to work with<br>
  -col specify column<br>
- -f specify how to filter<br>
+ -f specify how to filter
  
 Note: 
 - after running the tool -c flag is not required to specify command
