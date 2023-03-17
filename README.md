@@ -23,9 +23,9 @@ Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about St
 - sort
 - exit
 ##### Flags
- -c specify command to work with
- -col specify column
- -f specify how to filter
+ -c specify command to work with<br>
+ -col specify column<br>
+ -f specify how to filter<br>
  
 Note: 
 - after running the tool -c flag is not required to specify command
