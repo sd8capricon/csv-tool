@@ -5,7 +5,7 @@ import io
 parser = argparse.ArgumentParser(
     description="CSV Tool")
 parser.add_argument("file", help="path to CSV file")
-parser.add_argument("-c", "--command", help="Command to run: \n count - count the number of rows in the file \n mean - mean of a given column \n filter - filter the file by a given column and value")
+parser.add_argument("-c", "--command", help="Command to run: \n count - count the number of rows in the file \n mean - mean of a given column \n filter - filter the file by a given column and value\n sort - sort the file by a given column\n std - standard deviation of a given column\n exit - exit the program")
 parser.add_argument("-f", "--filter", help="Filter to use")
 parser.add_argument("-col", "--column", help="Column to use")
 
@@ -23,7 +23,7 @@ def count(file: io.TextIOWrapper):
     for row in reader:
         count += 1
     file.seek(0)
-    return count-1
+    return count
 
 
 # check if a column exists in the file
@@ -69,6 +69,8 @@ def filter(file: io.TextIOWrapper, column: str, value: float):
     if (checkColumn(file, column) == False):
         print("Column does not exist")
         return None
+    if (value == None):
+        return None
     for row in reader:
         if (row[column] == value):
             temp.append(row)
@@ -100,14 +102,15 @@ def standardDeviation(file: io.TextIOWrapper, column: str):
     reader = csv.DictReader(file)
     sum = 0
     count = 0
-    mean = mean(file, column)
+    m = mean(file, column)
     file.seek(0)
     reader = csv.DictReader(file)
     for row in reader:
         try:
             if (row[column] == ""):
                 continue
-            sum += (float(row[column]) - mean) ** 2
+            sum += (float(row[column]) - m) ** 2
+            count += 1
         except ValueError as e:
             print("All values should be numeric")
             return None
@@ -119,7 +122,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     try:
         file = open(args.file, "r")
-        print("Welcome to the CSV Tool\npositional arguments:\n\tcommand - Command to run\noptional arguments:\n\t-h, --help - show this help message and exit\n\t-f FILTER, --filter FILTER - Filter to use\n\t-col COLUMN, --column COLUMN - Column to use")
+        print("Welcome to the CSV Tool\npositional arguments:\n\tcommand - Command to run(count, mean, filter, std, sort, exit)\noptional arguments:\n\t-h, --help - show this help message and exit\n\t-f FILTER, --filter FILTER - Filter to use\n\t-col COLUMN, --column COLUMN - Column to use")
         while True:
             if args.command == "count":
                 print(count(file))
